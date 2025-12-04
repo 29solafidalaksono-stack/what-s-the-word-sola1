@@ -1,0 +1,215 @@
+:root {
+    --primary-color: #2b7a78;
+    --secondary-color: #3aa39c;
+    --background-color: #f7f9f9;
+    --text-color: #17252a;
+    --error-color: #e84a5f;
+    --success-color: #3bb357;
+    --card-color: #def2f1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.game-area {
+    background: var(--card-color);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.word-display {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+    min-height: 50px; /* Menghindari layout shift */
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.word-letter {
+    padding: 0 5px;
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.word-letter.revealed {
+    border-bottom-color: transparent;
+}
+
+.hint-message {
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+#guess-input {
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    width: 60px;
+    text-align: center;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    margin-right: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+#guess-button, #reset-button, #modal-close-button {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#guess-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#guess-button:hover {
+    background-color: #1a5e5c;
+}
+
+#reset-button {
+    background-color: var(--error-color);
+    color: white;
+    margin-top: 15px;
+}
+
+#reset-button:hover {
+    background-color: #d13749;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.stats-area {
+    text-align: left;
+    padding: 15px 25px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.stats-area p {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+#failure-count {
+    font-weight: 700;
+    color: var(--error-color);
+}
+
+#incorrect-guesses {
+    font-family: monospace;
+    color: var(--error-color);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+/* Modal Styling */
+.modal {
+    display: none; /* Default state */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* Centered */
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#modal-title {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+#modal-message {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+#modal-close-button {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+#modal-close-button:hover {
+    background-color: #338a83;
+}
+
+/* Responsiveness */
+@media (max-width: 400px) {
+    .word-display {
+        font-size: 2rem;
+        letter-spacing: 5px;
+    }
+    #guess-input {
+        width: 50px;
+        font-size: 1rem;
+        padding: 8px 10px;
+    }
+    #guess-button {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}

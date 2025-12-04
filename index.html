@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's the Word? 🧐</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h1>What's the Word? 🤔</h1>
+        <div class="game-area">
+            <div id="word-display" class="word-display"></div>
+            <p id="hint-message" class="hint-message">Lengkapi kata di atas!</p>
+            <input type="text" id="guess-input" maxlength="1" placeholder="Tebak Huruf..." autofocus>
+            <button id="guess-button">Tebak</button>
+            <button id="reset-button" class="hidden">Main Lagi</button>
+        </div>
+
+        <div class="stats-area">
+            <p>Gagal: <span id="failure-count">0</span> / 5</p>
+            <p>Kata Salah: <span id="incorrect-guesses"></span></p>
+        </div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <h2 id="modal-title"></h2>
+                <p id="modal-message"></p>
+                <button id="modal-close-button">Lanjut (Spasi)</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
